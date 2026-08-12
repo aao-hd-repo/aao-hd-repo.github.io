@@ -6,7 +6,7 @@
 // @author			Eyacorkett
 // @match			*://www.aaonline.fr/player.php*
 // @match			*://aaonline.fr/player.php*
-// @icon			https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/Icon.png
+// @icon			https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/Icon.png
 // @grant			none
 // ==/UserScript==
 
@@ -16,41 +16,41 @@
 	// 1. Replaces Bottom Screen image of the courtroom with a higher quality version
 	const background = document.querySelector('#screen-bottom');
 	if (background) {
-		background.style.backgroundImage = "url('https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/HD%20BG%202.svg')";
+		background.style.backgroundImage = "url('https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/HD%20BG%202.svg')";
 	}
 
 
 	// 2. Replaces Bottom Screen Arrows
 	const arrowcenter = document.querySelector(`img[src="img/player/proceed.gif"]`);
 	if (arrowcenter) {
-		arrowcenter.src = "https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/Proceed.svg";
+		arrowcenter.src = "https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/Proceed.svg";
 	}
 
 	const arrowskip = document.querySelector(`img[src="img/player/skip.gif"]`);
 	if (arrowskip) {
-		arrowskip.src = "https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/Skip.svg";
+		arrowskip.src = "https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/Skip.svg";
 	}
 
 	const arrowcrossskip = document.querySelector(`img[src="img/player/statement_skip_forwards.gif"]`);
 	if (arrowcrossskip) {
-		arrowcrossskip.src = "https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/Statement%20Skip.svg";
+		arrowcrossskip.src = "https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/Statement%20Skip.svg";
 	}
 
 	const arrowforward = document.querySelector(`img[src="img/player/statement_forwards.gif"]`);
 	if (arrowforward) {
-		arrowforward.src = "https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/Statement%20Forwards.svg";
+		arrowforward.src = "https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/Statement%20Forwards.svg";
 	}
 
 	const arrowbackward = document.querySelector(`img[src="img/player/statement_backwards.gif"]`);
 	if (arrowbackward) {
-		arrowbackward.src = "https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/Statement%20Backwards.svg";
+		arrowbackward.src = "https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/Statement%20Backwards.svg";
 	}
 
 
 	// 3. Replaces sans-serif font elements with Kozuka Gothic Pro (Regular); this includes text from TimeAxis' Backlog script if it's installed
 	// 4. Edits Textbox css data to make it more closely resemble the DD / SoJ textbox
 	// 5. Edits Nametag css data to make it more closely resemble the DD / SoJ Nametag
-	const fontUrl = "https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/KozGoPro-Regular.otf";
+	const fontUrl = "https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/KozGoPro-Regular.otf";
 	const style = document.createElement('style');
 	style.innerHTML = `
 		@font-face {
