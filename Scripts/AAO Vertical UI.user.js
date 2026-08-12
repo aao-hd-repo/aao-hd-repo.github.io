@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name			AAO Vertical UI
-// @namespace		http://tampermonkey.net/
+// @namespace		AAOVerticalUI
 // @version			2026-08-11
 // @description		VERTICAL AND RED!!!! thanks Eyacorkett for allowing me to borrow hd script thanks
 // @author			betboxer
 // @match			*://www.aaonline.fr/player.php*
 // @match			*://aaonline.fr/player.php*
-// @icon			https://file.garden/aDY02JoWpRDHJHK4/Ace%20Attorney%20Online/UI/Icon.png
+// @icon			https://aao-hd-repo.github.io/Scripts/AAO%20HD%20UI/Icon.png
 // @grant			none
 // ==/UserScript==
 
