@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="102"
+   height="76"
+   viewBox="0 0 102 76"
+   sodipodi:docname="Statement Backwards.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="6.6179505"
+     inkscape:cx="61.04609"
+     inkscape:cy="40.873681"
+     inkscape:window-width="1920"
+     inkscape:window-height="1201"
+     inkscape:window-x="0"
+     inkscape:window-y="42"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer 1" />
+  <defs
+     id="defs1" />
+  <g
+     id="Layer 1">
+    <path
+       style="fill:#ffffff"
+       d="M 70,24 V 52 L 31,38 Z"
+       id="path1" />
+    <animateTransform
+       attributeName="transform"
+       type="translate"
+       repeatCount="indefinite"
+       dur="0.24s"
+       keyTimes="0; 0.25; 0.5; 0.75; 1.0"
+       values="0,0; -2,0; 0,0; 2,0; 0,0"
+       calcMode="linear"
+       additive="sum" />
+  </g>
+</svg>
