@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			AAO HD UI
-// @namespace		http://tampermonkey.net/
+// @namespace		AAOHDUI
 // @version			2026-08-11
 // @description		A bunch of UI changes to AAO to give it feel reminiscent of DD / SoJ instead of the DS-era feel it normally has.
 // @author			Eyacorkett
