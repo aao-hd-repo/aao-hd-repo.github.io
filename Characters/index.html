@@ -1,0 +1,192 @@
+<html>
+<head>
+	<title>AAO HD Character Repository</title>
+	<link href="../styles/main.css" rel="stylesheet">
+	<link href="../styles/tabs.css" rel="stylesheet">
+	<link href="../styles/nav.css" rel="stylesheet">
+</head>
+
+<body>
+<nav id="nav" class="nav">
+	<h2>Navigation</h2>
+	<br>
+	<ul>
+		<li><strong>Character Repository</strong>
+		<hr>
+		<li><a href="../Backgrounds/">Background Repository</a>
+		<hr>
+		<li><a href="../Evidence/">Evidence Repository</a>
+		<hr>
+		<li><a href="../DS/">DS-resolution Asset Repo</a>
+		<hr>
+		<li><a href="../Scripts/">AAO Website Scripts</a>
+		<br><br><br>
+		<li><a href="https://www.aaonline.fr/player.php?trial_id=150704">Play the tutorial in AAO!</a>
+	</ul>
+</nav>
+
+<div class="nav-toggle">
+	<div class="nav-toggle-bar"></div>
+</div>
+
+
+<div class="main-tab">
+	<button class="main-tablinks" onclick="openSeries(event, 'PWT')" id="defaultOpen"><i>Phoenix Wright</i> Trilogy</button>
+	<button class="main-tablinks" onclick="openSeries(event, 'AAIC')"><i>Investigations</i> Duology</button>
+	<button class="main-tablinks" onclick="openSeries(event, 'AJT')"><i>Apollo Justice</i> Trilogy</button>
+	<button class="main-tablinks" onclick="openSeries(event, 'Other')">Other games</button>
+</div>
+
+
+<!-- Phoenix Wright Trilogy
+-->
+<div id="PWT" class="tab">
+	<button class="tablinks" onclick="openGame(event, 'AA1')">Phoenix Wright: Ace Attorney</button>
+	<button class="tablinks" onclick="openGame(event, 'AA2')">Justice for All</button>
+	<button class="tablinks" onclick="openGame(event, 'AA3')">Trials & Tribulations</button>
+</div>
+
+<div id="AA1" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Characters</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-character game="AA1" name="Phoenix Wright"></game-character>
+	</div>
+</div>
+
+<div id="AA2" class="tabcontent">
+	<h3>Phoenix Wright: Ace Attorney - Justice for All</h3>
+	<p>Game 2</p>
+</div>
+
+<div id="AA3" class="tabcontent">
+	<h3>Phoenix Wright: Ace Attorney - Trials & Tribulations</h3>
+	<p>Game 3</p>
+</div>
+
+
+<!-- Ace Attorney Investigations
+-->
+<div id="AAIC" class="tab">
+	<button class="tablinks" onclick="openGame(event, 'AAI1')">Miles Edgeworth</button>
+	<button class="tablinks" onclick="openGame(event, 'AAI2')">Prosecutor's Gambit</button>
+</div>
+
+<div id="AAI1" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Characters</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-character game="AAI1" name="Shi-na"></game-character>
+	</div>
+</div>
+
+<div id="AAI2" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Characters</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-character game="AAI2" name="Eddie Fender"></game-character>
+	</div>
+</div>
+
+
+<!-- Apollo Justice Trilogy
+-->
+<div id="AJT" class="tab">
+	<button class="tablinks" onclick="openGame(event, 'AA4')">Apollo Justice: Ace Attorney</button>
+</div>
+
+<div id="AA4" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Characters</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-character game="AA4" name="Apollo Justice"></game-character>
+		<game-character game="AA4" name="Trucy Wright"></game-character>
+		<game-character img="AA1" img2="Phoenix Wright" game="AA4" name="Phoenix Wright (7 Years Ago)"></game-character>
+		<game-character game="AA4" name="Ema Skye"></game-character>
+	</div>
+</div>
+
+
+<!-- Other Games
+-->
+<div id="Other" class="tab">
+	<button class="tablinks" onclick="openGame(event, '999')">Zero Escape: 9 Hours, 9 Persons, 9 Doors</button>
+</div>
+
+<div id="999" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Characters</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-character game="ZE - 999" name="June"></game-character>
+		<game-character game="ZE - 999" name="Santa"></game-character>
+	</div>
+
+	<div class="character-grid-header">
+		<p>Profiles</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-character type="icon" game="ZE - 999" name="Junpei"></game-character>
+	</div>
+</div>
+
+
+<script src="../styles/editableJs/common.js"></script>
+<script src="../styles/editableJs/clipboard.js"></script>
+<script src="../styles/editableJs/tabs.js"></script>
+<script>
+// Character icon element
+class GameCharacter extends HTMLElement {
+	connectedCallback() {
+		const game = this.getAttribute('game');
+		const name = this.getAttribute('name');
+		const type = this.getAttribute('type');
+		const img = this.getAttribute('img');
+		const img2 = this.getAttribute('img2');
+
+		const baseDir = img ? img : game;
+		const nameDir = img2 ? img2 : name;
+		const imageUrl = `${baseDir}/${nameDir}/Profile.png`;
+
+		if (type === 'icon') {
+			this.innerHTML = `
+				<div class="character-card">
+					<img src="${imageUrl}" alt="${name}" width="125" height="125">
+					<p><b>${name}</b></p>
+					<button class="copyBtn" onclick="copyUrl('https://aao-hd-repo.github.io/Characters/${game}/${name}/Profile.png', this)">Copy URL</button>
+				</div>
+			`;
+		} else {
+			this.innerHTML = `
+				<div class="character-card">
+					<a href="${game}/${name}">
+						<img src="${imageUrl}" alt="${name}" width="125" height="125">
+						<p><b>${name}</b></p>
+					</a>
+				</div>
+			`;
+		}
+	}
+}
+
+customElements.define('game-character', GameCharacter);
+</script>
+
+</body>
+</html>
