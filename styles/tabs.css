@@ -1,0 +1,44 @@
+.tab, .main-tab {
+	display: flex;
+	background-color: #f1f1f1;
+	width: max-content;
+	margin: 0 auto;
+}
+
+
+.tablinks, .main-tablinks {
+	font-weight: bold;
+}
+.tablinks {
+	font-style: italic;
+}
+
+
+.tab button, .main-tab button {
+	background-color: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+
+.tab button:hover, .main-tab button:hover {
+	background-color: #ddd;
+}
+.tab button.active, .main-tab button.active {
+	background-color: #ccc;
+}
+
+
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	animation: fadeEffect 1s;
+}
+@keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}

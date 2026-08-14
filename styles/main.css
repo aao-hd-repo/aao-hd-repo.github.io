@@ -1,0 +1,60 @@
+body {
+	background-color: #222;
+	color: white;
+}
+
+
+@font-face {
+	font-family: 'DDSoJFont';
+	src: url('/Scripts/AAO%20HD%20UI/KozGoPro-Regular.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+body {
+	font-family: 'DDSoJFont', sans-serif;
+}
+
+
+.character-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 0 40px;
+	justify-content: center;
+}
+
+
+.character-grid-header p {
+	margin-top: 35px;
+	margin-bottom: 0;
+	font-weight: bold;
+	font-size: 150%;
+	text-align: center;
+}
+
+
+.character-card {
+	width: 125px;
+	text-align: center;
+}
+.character-card p, .place-card p {
+	margin: 0;
+	word-wrap: break-word;
+}
+.character-card button, .place-card button {
+	margin-top: 5px;
+}
+.character-card a, .place-card a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.place-card {
+	text-align: center;
+}
+
+
+table, th, td {
+  border: 1px solid #FFF;
+  border-collapse: collapse;
+}
