@@ -63,7 +63,7 @@ class GameCharacter extends HTMLElement {
 		if (type === 'icon') {
 			this.innerHTML = `
 				<div class="character-card">
-					<img src="${imageUrl}" alt="${name}" width="125" height="125">
+					<img src="${imageUrl}" alt="${name}" width="125" height="125" style="image-rendering: pixelated">
 					<p><b>${name}</b></p>
 					<button class="copyBtn" onclick="copyUrl('https://aao-hd-repo.github.io/DS/Characters/${game}/${name}/Profile.png', this)">Copy URL</button>
 				</div>
@@ -72,7 +72,7 @@ class GameCharacter extends HTMLElement {
 			this.innerHTML = `
 				<div class="character-card">
 					<a href="Characters/${game}/${name}">
-						<img src="${imageUrl}" alt="${name}" width="125 height="125">
+						<img src="${imageUrl}" alt="${name}" width="125 height="125" style="image-rendering: pixelated">
 						<p><b>${name}</b></p>
 					</a>
 				</div>
