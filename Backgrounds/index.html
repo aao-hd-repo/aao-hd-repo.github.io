@@ -1,0 +1,108 @@
+<html>
+<head>
+	<title>AAO HD Background Repository</title>
+	<link href="../styles/main.css" rel="stylesheet">
+	<link href="../styles/tabs.css" rel="stylesheet">
+	<link href="../styles/nav.css" rel="stylesheet">
+</head>
+
+<body>
+<nav id="nav" class="nav">
+	<h2>Navigation</h2>
+	<br>
+	<ul>
+		<li><a href="../Characters/">Characters Repository</a>
+		<hr>
+		<li><strong>Background Repository</strong>
+		<hr>
+		<li><a href="../Evidence/">Evidence Repository</a>
+		<hr>
+		<li><a href="../DS/">DS-resolution Asset Repo</a>
+		<hr>
+		<li><a href="../Scripts/">AAO Website Scripts</a>
+		<br><br><br>
+		<li><a href="https://www.aaonline.fr/player.php?trial_id=150704">Play the tutorial in AAO!</a>
+	</ul>
+</nav>
+
+<div class="nav-toggle">
+	<div class="nav-toggle-bar"></div>
+</div>
+
+
+<div class="main-tab">
+	<button class="main-tablinks" onclick="openSeries(event, 'PWT')" id="defaultOpen"><i>Phoenix Wright</i> Trilogy</button>
+	<button class="main-tablinks" onclick="openSeries(event, 'AJT')"><i>Apollo Justice</i> Trilogy</button>
+</div>
+
+
+<!-- Phoenix Wright Trilogy
+-->
+<div id="PWT" class="tab">
+	<button class="tablinks" onclick="openGame(event, 'AA1')">Phoenix Wright: Ace Attorney</button>
+</div>
+
+<div id="AA1" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Locations</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-place game="Phoenix Wright Trilogy" place="Police HQ Entrance"></game-place>
+		<game-place game="Phoenix Wright Trilogy" place="Global Studios Gate"></game-place>
+	</div>
+</div>
+
+
+<!-- Apollo Justice Trilogy
+-->
+<div id="AJT" class="tab">
+	<button class="tablinks" onclick="openGame(event, 'AA6')">Spirit of Justice</button>
+</div>
+
+<div id="AA6" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Locations</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-place game="Apollo Justice Trilogy" place="Doctor's Study"></game-place>
+	</div>
+</div>
+
+
+<script src="../styles/editableJs/common.js"></script>
+<script src="../styles/editableJs/clipboard.js"></script>
+<script src="../styles/editableJs/tabs.js"></script>
+<script>
+// Place icon element
+class GamePlace extends HTMLElement {
+	connectedCallback() {
+		const game = this.getAttribute('game');
+		const place = this.getAttribute('place');
+		const imageUrl = `${game}/${place}.svg`;
+
+		this.innerHTML = `
+			<div class="place-card">
+				<img src="${imageUrl}" alt="${place}" height="192">
+				<p><b>${place}</b></p>
+				<button class="copyBtn">Copy URL</button>
+			</div>
+		`;
+		
+		const targetUrl = `https://aao-hd-repo.github.io/Backgrounds/${game}/${place}.svg`;
+		const btn = this.querySelector('.copyBtn');
+		
+		btn.addEventListener('click', (event) => {
+			copyUrl(targetUrl, event.target);
+		});
+	}
+}
+
+customElements.define('game-place', GamePlace);
+</script>
+
+</body>
+</html>
