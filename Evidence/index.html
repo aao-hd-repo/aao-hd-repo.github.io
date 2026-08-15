@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>AAO HD Evidence Repository</title>
+	<link href="../styles/main.css" rel="stylesheet">
+	<link href="../styles/tabs.css" rel="stylesheet">
+	<link href="../styles/nav.css" rel="stylesheet">
+</head>
+
+<body>
+<nav id="nav" class="nav">
+	<h2>Navigation</h2>
+	<br>
+	<ul>
+		<li><a href="../Characters/">Character Repository</a>
+		<hr>
+		<li><a href="../Backgrounds/">Background Repository</a>
+		<hr>
+		<li><strong>Evidence Repository</strong>
+		<hr>
+		<li><a href="../DS/">DS-resolution Asset Repo</a>
+		<hr>
+		<li><a href="../Scripts/">AAO Website Scripts</a>
+		<br><br><br>
+		<li><a href="https://www.aaonline.fr/player.php?trial_id=150704">Play the tutorial in AAO!</a>
+	</ul>
+</nav>
+
+<div class="nav-toggle">
+	<div class="nav-toggle-bar"></div>
+</div>
+
+
+<div class="main-tab">
+	<button class="main-tablinks" onclick="openSeries(event, 'AJT')"><i>Apollo Justice</i> Trilogy</button>
+</div>
+
+
+<!-- Apollo Justice Trilogy
+-->
+<div id="AJT" class="tab">
+	<button class="tablinks" onclick="openGame(event, 'AA5')">Dual Destinies</button>
+</div>
+
+<div id="AA5" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Characters</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<game-icon type="icon" game="AA5" name="Attorney's Badge"></game-icon>
+		<game-icon type="icon" game="AA5" name="File"></game-icon></div>
+</div>
+
+
+<script src="../styles/editableJs/common.js"></script>
+<script src="../styles/editableJs/clipboard.js"></script>
+<script src="../styles/editableJs/tabs.js"></script>
+<script>
+// Evidence icon element
+class gameIcon extends HTMLElement {
+	connectedCallback() {
+		const game = this.getAttribute('game');
+		const name = this.getAttribute('name');
+
+		this.innerHTML = `
+			<div class="character-card">
+				<img src="${imageUrl}" alt="${name}" width="125" height="125">
+				<p><b>${name}</b></p>
+				<button class="copyBtn" onclick="copyUrl('https://aao-hd-repo.github.io/Characters/${game}/${name}.png', this)">Copy URL</button>
+			</div>
+		`;
+	}
+}
+
+customElements.define('game-icon', gameIcon);
+</script>
+
+</body>
+</html>
