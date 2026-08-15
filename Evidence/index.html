@@ -48,8 +48,8 @@
 	</div>
 
 	<div class="character-grid">
-		<game-icon type="icon" game="AA5" name="Attorney's Badge"></game-icon>
-		<game-icon type="icon" game="AA5" name="File"></game-icon></div>
+		<game-icon game="AA5" name="Attorney's Badge"></game-icon>
+		<game-icon game="AA5" name="File"></game-icon></div>
 </div>
 
 
@@ -62,7 +62,7 @@ class GameIcon extends HTMLElement {
 	connectedCallback() {
 		const game = this.getAttribute('game');
 		const name = this.getAttribute('name');
-		const imageUrl = `${game}/${name}.svg`;
+		const imageUrl = `${game}/${name}.png`;
 
 		this.innerHTML = `
 			<div class="character-card">
