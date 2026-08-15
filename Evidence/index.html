@@ -58,18 +58,26 @@
 <script src="../styles/editableJs/tabs.js"></script>
 <script>
 // Evidence icon element
-class gameIcon extends HTMLElement {
+class GameIcon extends HTMLElement {
 	connectedCallback() {
 		const game = this.getAttribute('game');
 		const name = this.getAttribute('name');
+		const imageUrl = `${game}/${name}.svg`;
 
 		this.innerHTML = `
 			<div class="character-card">
-				<img src="${imageUrl}" alt="${name}" width="125" height="125">
+				<img src="${imageUrl}" alt="${name}" height="192">
 				<p><b>${name}</b></p>
-				<button class="copyBtn" onclick="copyUrl('https://aao-hd-repo.github.io/Characters/${game}/${name}.png', this)">Copy URL</button>
+				<button class="copyBtn">Copy URL</button>
 			</div>
 		`;
+		
+		const targetUrl = `https://aao-hd-repo.github.io/Evidence/${game}/${name}.png`;
+		const btn = this.querySelector('.copyBtn');
+		
+		btn.addEventListener('click', (event) => {
+			copyUrl(targetUrl, event.target);
+		});
 	}
 }
 
