@@ -16,6 +16,8 @@ if (nativeNav) {
 			<li><a href="/Scripts/">AAO Website Scripts</a></li>
 			<br><br><br>
 			<li><a href="https://aaonline.fr">Play the tutorial in AAO!</a></li>
+			<br><br><br>
+			<li><a href="https://github.com/aao-hd-repo/aao-hd-repo.github.io">See the website's code</a></li>
 		</ul>
 	`;
 }
