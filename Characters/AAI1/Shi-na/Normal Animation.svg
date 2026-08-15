@@ -31,7 +31,7 @@
      inkscape:window-x="0"
      inkscape:window-y="43"
      inkscape:window-maximized="0"
-     inkscape:current-layer="Body" /><defs
+     inkscape:current-layer="svg1" /><defs
      id="defs1" /><g
      id="Body"
      transform="matrix(0.18,0,0,0.18,91,90.68)"><image
@@ -69,10 +69,9 @@
        y="-372" /><animateTransform
        attributeName="transform"
        type="translate"
-       repeatCount="1"
-       dur="3.03s"
+       repeatCount="indefinite"
+       dur="3.031s"
        keyTimes="0; 0.33; 0.6; 1.0"
        values="0,0; -1000,0; -2000,0; 0,0"
        calcMode="discrete"
-       additive="sum"
-       fill="freeze" /></g></svg>
+       additive="sum" /></g></svg>
