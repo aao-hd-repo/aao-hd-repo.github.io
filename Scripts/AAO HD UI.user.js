@@ -107,7 +107,7 @@
 			clip-path: polygon(0% 0%, calc(100% - 14px) 0%, calc(100% - 0.85px) 100%, 0% 100%);
 		}
 
-			.backlog-content {
+		.backlog-content {
 			height: 144px;
 		}
 
