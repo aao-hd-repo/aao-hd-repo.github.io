@@ -66,8 +66,8 @@
 		}
 
 		div.textbox .dialogue {
-			width: 240.5px;
-			padding: 3px 7px 3px 7px;
+			width: 246.5px;
+			padding: 3px 1px 3px 7px;
 			border: 1px solid #FFF;
 			border-radius: 4px 4px 4px 4px;
 			background: rgba(0, 0, 0, 0.3);
@@ -84,7 +84,7 @@
 			z-index: 999;
 			transform: translateY(-1.125px);
 			width: max-content;
-			height: 10px;
+			height: 9.8px;
 			font-size: 8px;
 			white-space: nowrap;
 			color: #FFF;
@@ -107,6 +107,9 @@
 			clip-path: polygon(0% 0%, calc(100% - 14px) 0%, calc(100% - 0.85px) 100%, 0% 100%);
 		}
 
+			.backlog-content {
+			height: 144px;
+		}
 
 		.backlog-name {
 			border: 1px solid #FFF;
