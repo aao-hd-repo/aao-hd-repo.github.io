@@ -66,8 +66,8 @@
 		}
 
 		div.textbox .dialogue {
-			width: 238px;
-			padding: 3px 7px 3px 10px;
+			width: 240.5px;
+			padding: 3px 7px 3px 7px;
 			border: 1px solid #FFF;
 			border-radius: 4px 4px 4px 4px;
 			background: rgba(0, 0, 0, 0.3);
