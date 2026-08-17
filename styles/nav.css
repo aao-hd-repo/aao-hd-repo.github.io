@@ -103,3 +103,14 @@
 .nav hr {
 	color: #dedede;
 }
+
+
+.navigation-text {
+	pointer-events: none;
+	margin-top: -10px;
+	margin-bottom: 30px;
+}
+.current-page {
+	color: black;
+	pointer-events: none;
+}

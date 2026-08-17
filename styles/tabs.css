@@ -9,6 +9,9 @@
 .tablinks, .main-tablinks {
 	font-weight: bold;
 }
+.italic {
+	font-style: italic;
+}
 
 
 .tab button, .main-tab button {

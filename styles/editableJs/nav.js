@@ -2,8 +2,7 @@ const nativeNav = document.getElementById("nav");
 
 if (nativeNav) {
 	nativeNav.innerHTML = `
-		<h2>Navigation</h2>
-		<br>
+		<h2 class="navigation-text">Navigation</h2>
 		<ul>
 			<li><a href="/Characters/">Character Repository</a></li>
 			<hr>
