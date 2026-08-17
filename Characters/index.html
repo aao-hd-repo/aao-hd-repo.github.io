@@ -7,25 +7,7 @@
 </head>
 
 <body>
-<nav id="nav" class="nav">
-	<h2>Navigation</h2>
-	<br>
-	<ul>
-		<li><strong>Character Repository</strong></li>
-		<hr>
-		<li><a href="../Backgrounds/">Background Repository</a></li>
-		<hr>
-		<li><a href="../Evidence/">Evidence Repository</a></li>
-		<hr>
-		<li><a href="../DS/">DS-resolution Asset Repo</a></li>
-		<hr>
-		<li><a href="../Scripts/">AAO Website Scripts</a></li>
-		<br>
-		<li><a href="https://www.aaonline.fr/player.php?trial_id=150704">Play the tutorial in AAO!</a></li>
-		<br>
-		<li><a href="https://github.com/aao-hd-repo/aao-hd-repo.github.io">See the website's code</a></li>
-	</ul>
-</nav>
+<nav id="nav" class="nav"></nav>
 
 <div class="nav-toggle">
 	<div class="nav-toggle-bar"></div>
@@ -90,7 +72,7 @@
 	</div>
 
 	<div class="character-grid">
-		<game-character game="AAI1" name="Shi-na"></game-character>
+		<game-character game="AAI1" name="Shih-na"></game-character>
 	</div>
 </div>
 
@@ -159,43 +141,8 @@
 <script src="../styles/editableJs/common.js"></script>
 <script src="../styles/editableJs/clipboard.js"></script>
 <script src="../styles/editableJs/tabs.js"></script>
-<script>
-// Character icon element
-class GameCharacter extends HTMLElement {
-	connectedCallback() {
-		const game = this.getAttribute('game');
-		const name = this.getAttribute('name');
-		const type = this.getAttribute('type');
-		const img = this.getAttribute('img');
-		const img2 = this.getAttribute('img2');
-
-		const baseDir = img ? img : game;
-		const nameDir = img2 ? img2 : name;
-		const imageUrl = `${baseDir}/${nameDir}/Profile.png`;
-
-		if (type === 'icon') {
-			this.innerHTML = `
-				<div class="character-card">
-					<img src="${imageUrl}" alt="${name}" width="125" height="125">
-					<p><b>${name}</b></p>
-					<button class="copyBtn" onclick="copyUrl('https://aao-hd-repo.github.io/Characters/${game}/${name}/Profile.png', this)">Copy URL</button>
-				</div>
-			`;
-		} else {
-			this.innerHTML = `
-				<div class="character-card">
-					<a href="${game}/${name}">
-						<img src="${imageUrl}" alt="${name}" width="125" height="125">
-						<p><b>${name}</b></p>
-					</a>
-				</div>
-			`;
-		}
-	}
-}
-
-customElements.define('game-character', GameCharacter);
-</script>
+<script src="../styles/editableJs/nav.js"></script>
+<script src="../styles/editableJs/icons.js"></script>
 
 </body>
 </html>

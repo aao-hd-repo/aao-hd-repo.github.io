@@ -7,45 +7,52 @@
 </head>
 
 <body>
-<nav id="nav" class="nav">
-	<h2>Navigation</h2>
-	<br>
-	<ul>
-		<li><a href="../Characters/">Characters Repository</a></li>
-		<hr>
-		<li><a href="../Backgrounds/">Background Repository</a></li>
-		<hr>
-		<li><a href="../Evidence/">Evidence Repository</a></li>
-		<hr>
-		<li><strong>DS-resolution Asset Repo</strong></li>
-		<hr>
-		<li><a href="../Scripts/">AAO Website Scripts</a></li>
-		<br>
-		<li><a href="https://www.aaonline.fr/player.php?trial_id=150704">Play the tutorial in AAO!</a></li>
-		<br>
-		<li><a href="https://github.com/aao-hd-repo/aao-hd-repo.github.io">See the website's code</a></li>
-	</ul>
-</nav>
+<nav id="nav" class="nav"></nav>
 
 <div class="nav-toggle">
 	<div class="nav-toggle-bar"></div>
 </div>
 
 
-<div class="tab">
-	<button class="tablinks" onclick="openGame(event, 'chars')" id="defaultOpen">Characters</button>
-	<button class="tablinks" onclick="openGame(event, 'bgs')">Backgrounds</button>
+<div class="main-tab">
+	<button class="main-tablinks" onclick="openSeries(event, 'chars')" id="defaultOpen">Characters</button>
+	<button class="main-tablinks" onclick="openSeries(event, 'bgs')">Backgrounds</button>
 </div>
 
-<div id="chars" class="tabcontent">
+
+<!-- Characters
+-->
+<div id="chars" class="tab">
+	<button class="tablinks" onclick="openGame(event, 'char 999')">Zero Escape: 9 Hours, 9 Persons, 9 Doors</button>
+</div>
+
+<div id="char 999" class="tabcontent">
 	<div class="character-grid-header">
 		<p>Characters</p>
 		<hr>
 	</div>
 
 	<div class="character-grid">
-		<game-character game="ZE - 999" name="June"></game-character>
-		<game-character game="ZE - 999" name="Santa"></game-character>
+		<ds-game-character game="ZE - 999" name="June"></ds-game-character>
+		<ds-game-character game="ZE - 999" name="Santa"></ds-game-character>
+	</div>
+</div>
+
+
+<!-- Backgrounds
+-->
+<div id="bgs" class="tab">
+	<button class="tablinks" onclick="openGame(event, 'bgs 999')">Zero Escape: 9 Hours, 9 Persons, 9 Doors</button>
+</div>
+
+<div id="bgs 999" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Locations</p>
+		<hr>
+	</div>
+
+	<div class="character-grid">
+		<ds-game-place game="ZE - 999" place="Hospital"></ds-game-place>
 	</div>
 </div>
 
@@ -53,38 +60,8 @@
 <script src="../styles/editableJs/common.js"></script>
 <script src="../styles/editableJs/clipboard.js"></script>
 <script src="../styles/editableJs/tabs.js"></script>
-<script>
-// Character icon element
-class GameCharacter extends HTMLElement {
-	connectedCallback() {
-		const game = this.getAttribute('game');
-		const name = this.getAttribute('name');
-		const type = this.getAttribute('type');
-		const imageUrl = `Characters/${game}/${name}/Profile.png`;
-
-		if (type === 'icon') {
-			this.innerHTML = `
-				<div class="character-card">
-					<img src="${imageUrl}" alt="${name}" width="125" height="125" style="image-rendering: pixelated">
-					<p><b>${name}</b></p>
-					<button class="copyBtn" onclick="copyUrl('https://aao-hd-repo.github.io/DS/Characters/${game}/${name}/Profile.png', this)">Copy URL</button>
-				</div>
-			`;
-		} else {
-			this.innerHTML = `
-				<div class="character-card">
-					<a href="Characters/${game}/${name}">
-						<img src="${imageUrl}" alt="${name}" width="125 height="125" style="image-rendering: pixelated">
-						<p><b>${name}</b></p>
-					</a>
-				</div>
-			`;
-		}
-	}
-}
-
-customElements.define('game-character', GameCharacter);
-</script>
+<script src="../styles/editableJs/nav.js"></script>
+<script src="../styles/editableJs/icons.js"></script>
 
 </body>
 </html>

@@ -1,4 +1,6 @@
-// Button to paste a link to the clipboard - Thanks Trybien
+//////////////////////////////////////////////////////////////////////////////////////////
+// Button to paste a link to the clipboard - Copied from Trybien's Github
+//////////////////////////////////////////////////////////////////////////////////////////
 function copyUrl(url, button) {
 	if (navigator.clipboard && window.isSecureContext) {
 		navigator.clipboard.writeText(url)

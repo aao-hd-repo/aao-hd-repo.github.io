@@ -37,24 +37,51 @@ body {
 	width: 125px;
 	text-align: center;
 }
-.character-card p, .place-card p {
+.character-card p, .place-card p, .court-card p {
 	margin: 0;
 	word-wrap: break-word;
 }
-.character-card button, .place-card button {
+.character-card button, .place-card button, .court-card button {
 	margin-top: 5px;
 }
-.character-card a, .place-card a {
+.character-card a, .place-card a, .court-card a {
 	color: inherit;
 	text-decoration: none;
 }
-
-.place-card {
+.place-card, .court-card {
 	text-align: center;
 }
 
 
+.court-image {
+	position: relative;
+	display: inline-block;
+	height: 192px;
+}
+.bg {
+	display: block;
+	width: auto;
+	height: 192px;
+}
+.fg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 192px;
+	width: auto;
+	z-index: 2;
+	pointer-events: none;
+}
+
+
 table, th, td {
-  border: 1px solid #FFF;
-  border-collapse: collapse;
+	border: 1px solid #FFF;
+	border-collapse: collapse;
+}
+
+
+.current-page {
+	color: black;
+	text-decoration: none;
+	cursor: text;
 }

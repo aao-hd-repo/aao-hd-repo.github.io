@@ -1,82 +1,70 @@
+//////////////////////////////////////////////////////////////////////////////////////////
+// Creates a unique localStorage key bound to the current page URL path
+//////////////////////////////////////////////////////////////////////////////////////////
+const getPageKey = (baseKey) => `${baseKey}_${window.location.pathname}`;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 // Collection tabs
+//////////////////////////////////////////////////////////////////////////////////////////
 function openSeries(evt, seriesName) {
-	var i, tabs, mainLinks, tabContents, gameLinks;
+	document.querySelectorAll(".tab").forEach(tab => tab.style.display = "none");
+	document.querySelectorAll(".main-tablinks").forEach(link => link.classList.remove("active"));
 
-	// 1. Hides all series sub-menus (.tab)
-	tabs = document.getElementsByClassName("tab");
-	for (i = 0; i < tabs.length; i++) {
-		tabs[i].style.display = "none";
+	const currentSeries = document.getElementById(seriesName);
+	if (currentSeries) {
+		currentSeries.style.display = "flex";
 	}
+	evt?.currentTarget?.classList.add("active");
 
-	// 2. Deactivates all main tab buttons (removes active class)
-	mainLinks = document.getElementsByClassName("main-tablinks");
-	for (i = 0; i < mainLinks.length; i++) {
-		mainLinks[i].className = mainLinks[i].className.replace(" active", "");
-	}
+	localStorage.setItem(getPageKey("lastActiveSeries"), seriesName);
 
-	// 3. Opens the clicked series sub-menu container
-	var currentSeries = document.getElementById(seriesName);
-	currentSeries.style.display = "flex";
-	evt.currentTarget.className += " active";
-	
-	// 4.
-	localStorage.setItem("lastActiveSeries", seriesName);
+	// Restores sub-game history specific to this page
+	const savedGameId = localStorage.getItem(getPageKey(`lastActiveGame_${seriesName}`));
+	const gameButtonToClick = (savedGameId && currentSeries?.querySelector(`[onclick*="${CSS.escape(savedGameId)}"]`)) 
+		|| currentSeries?.querySelector(".tablinks");
 
-	// 5. Restores the saved game or clicks the first one if it's the first time
-	var savedGameId = localStorage.getItem("lastActiveGame_" + seriesName);
-	var gameButtonToClick = null;
-
-	// 5.1. Looks for the specific button that opens the saved game ID
-	if (savedGameId) {
-		gameButtonToClick = currentSeries.querySelector(`[onclick*="${savedGameId}"]`);
-	}
-
-	// 5.2. Selects first tab if no save exists or button isn't found
-	if (!gameButtonToClick) {
-		gameButtonToClick = currentSeries.querySelector(".tablinks");
-	}
-	if (gameButtonToClick) {
-		gameButtonToClick.click();
-	}
+	gameButtonToClick?.click();
 }
 
 
+//////////////////////////////////////////////////////////////////////////////////////////
 // Game tabs
+//////////////////////////////////////////////////////////////////////////////////////////
 function openGame(evt, gameName) {
-	var i, tabcontent, tablinks;
+	document.querySelectorAll(".tabcontent").forEach(content => content.style.display = "none");
+	document.querySelectorAll(".tablinks").forEach(link => link.classList.remove("active"));
 
-	// 1. Hides all game sections
-	tabcontent = document.getElementsByClassName("tabcontent");
-	for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
+	const currentGame = document.getElementById(gameName);
+	if (currentGame) {
+		currentGame.style.display = "block";
 	}
 
-	// 2. Deactivates all game buttons
-	tablinks = document.getElementsByClassName("tablinks");
-	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	if (evt?.currentTarget) {
+		evt.currentTarget.classList.add("active");
+		const parentTab = evt.currentTarget.closest(".tab");
+		if (parentTab) {
+			localStorage.setItem(getPageKey(`lastActiveGame_${parentTab.id}`), gameName);
+		}
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// History restoration on load
+//////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener("DOMContentLoaded", () => {
+	const savedSeries = localStorage.getItem(getPageKey("lastActiveSeries"));
+	let btnToClick = null;
+
+	if (savedSeries) {
+		btnToClick = Array.from(document.querySelectorAll(".main-tablinks")).find(btn => {
+			const onclickText = btn.getAttribute("onclick") || "";
+			const match = onclickText.match(/openSeries\s*\([^,]+,\s*['"`](.*?)['"`]\)/);
+			return match && match[1] === savedSeries;
+		});
 	}
 
-	// 3. Shows current game and highlight its button
-	document.getElementById(gameName).style.display = "block";
-	evt.currentTarget.className += " active";
-
-	// 4. Saves selected tab to localStorage
-	var seriesName = evt.currentTarget.closest('.tab').id;
-	localStorage.setItem("lastActiveGame_" + seriesName, gameName);
-}
-
-
-// Looks for a saved series on load. If nothing is saved, uses defaultOpen
-var savedSeries = localStorage.getItem("lastActiveSeries");
-var seriesButtonToClick = null;
-
-if (savedSeries) {
-	seriesButtonToClick = document.querySelector(`.main-tablinks[onclick*="${savedSeries}"]`);
-}
-
-if (seriesButtonToClick) {
-	seriesButtonToClick.click();
-} else {
-	document.getElementById("defaultOpen").click();
-}
+	btnToClick ||= document.getElementById("defaultOpen") || document.querySelector(".main-tablinks");
+	btnToClick?.click();
+});
