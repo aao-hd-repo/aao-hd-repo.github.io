@@ -9,9 +9,6 @@
 .tablinks, .main-tablinks {
 	font-weight: bold;
 }
-.tablinks {
-	font-style: italic;
-}
 
 
 .tab button, .main-tab button {
@@ -37,8 +34,4 @@
 	display: none;
 	padding: 6px 12px;
 	animation: fadeEffect 1s;
-}
-@keyframes fadeEffect {
-	from {opacity: 0;}
-	to {opacity: 1;}
 }
