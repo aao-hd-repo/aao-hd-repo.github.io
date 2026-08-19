@@ -23,7 +23,7 @@ class GameCharacter extends HTMLElement {
 			`;
 		} else {
 			this.innerHTML = `
-				<div class="character-card">
+				<div class="character-card character-icon">
 					<a href="${game}/${name}">
 						<img src="${imageUrl}" alt="${name}" width="125" height="125">
 						<p><b>${name}</b></p>
@@ -151,7 +151,7 @@ class DSGameCharacter extends HTMLElement {
 			`;
 		} else {
 			this.innerHTML = `
-				<div class="character-card">
+				<div class="character-card character-icon">
 					<a href="Characters/${game}/${name}">
 						<img src="${imageUrl}" alt="${name}" width="125 height="125" style="image-rendering: pixelated">
 						<p><b>${name}</b></p>
