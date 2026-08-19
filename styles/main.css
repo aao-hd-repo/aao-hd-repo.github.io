@@ -4,6 +4,11 @@ body {
 }
 
 
+.main-page-header, .main-icon, .character-grid-header {
+	animation: fadeEffect 1s;
+}
+
+
 @font-face {
 	font-family: 'DDSoJFont';
 	src: url('/Scripts/AAO%20HD%20UI/KozGoPro-Regular.otf') format('opentype');
@@ -91,9 +96,6 @@ table, th, td {
 	font-weight: bold;
 	font-size: 250%;
 	text-align: center;
-}
-.main-page-header {
-	animation: fadeEffect 1s;
 }
 @keyframes fadeEffect {
 	from {opacity: 0;}
