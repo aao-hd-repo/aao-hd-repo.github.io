@@ -38,7 +38,9 @@ body {
 	text-align: center;
 }
 .character-card p, .place-card p, .court-card p {
-	margin: 0;
+	margin-top: 5px;
+	margin-bottom: 0;
+	line-height: 1.25;
 	word-wrap: break-word;
 }
 .character-card button, .place-card button, .court-card button {

@@ -114,3 +114,9 @@
 	color: black;
 	pointer-events: none;
 }
+
+
+.nav-item {
+	margin-top: -10px;
+	margin-bottom: 60px;
+}

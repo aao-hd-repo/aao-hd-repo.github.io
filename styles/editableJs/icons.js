@@ -190,3 +190,31 @@ class DSGamePlace extends HTMLElement {
 	}
 }
 customElements.define('ds-game-place', DSGamePlace);
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Tutorial Place icon element
+//////////////////////////////////////////////////////////////////////////////////////////
+class TutorialGamePlace extends HTMLElement {
+	connectedCallback() {
+		const game = this.getAttribute('game');
+		const place = this.getAttribute('place');
+		const imageUrl = `Backgrounds/${game}/${place}.svg`;
+
+		this.innerHTML = `
+			<div class="place-card">
+				<img src="${imageUrl}" alt="${place}" height="192">
+				<p><b>${place}</b></p>
+				<button class="copyBtn">Copy URL</button>
+			</div>
+		`;
+
+		const targetUrl = `https://aao-hd-repo.github.io/AAO Tutorial Assets/Backgrounds/${game}/${place}.svg`;
+		const btn = this.querySelector('.copyBtn');
+
+		btn.addEventListener('click', (event) => {
+			copyUrl(targetUrl, event.target);
+		});
+	}
+}
+customElements.define('tutorial-place', TutorialGamePlace);
