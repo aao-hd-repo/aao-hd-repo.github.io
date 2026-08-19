@@ -1,9 +1,9 @@
 <html>
 <head>
 	<title>AAO HD Tutorial</title>
-	<link href="styles/main.css" rel="stylesheet">
-	<link href="styles/tabs.css" rel="stylesheet">
-	<link href="styles/nav.css" rel="stylesheet">
+	<link href="../styles/main.css" rel="stylesheet">
+	<link href="../styles/tabs.css" rel="stylesheet">
+	<link href="../styles/nav.css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,20 +14,29 @@
 </div>
 
 
-<div class="main-page-header">
-	<p>AAO HD Asset Repository</p>
-	<hr>
+<div class="tab">
+	<button class="tablinks" onclick="openGame(event, 'L1')" id="defaultOpen">1. The Basics</button>
+	<button class="tablinks" onclick="openGame(event, 'L2')">2. Using Inkscape</button>
+	<button class="tablinks" onclick="openGame(event, 'L3')">3. Characters</button>
+	<button class="tablinks" onclick="openGame(event, 'L4')">4. Court Record Icons</button>
+	<button class="tablinks" onclick="openGame(event, 'L5')">5. Backgrounds</button>
+	<button class="tablinks" onclick="openGame(event, 'L6')">6. Miscellaneous Info</button></div>
 </div>
 
 
-<div class="character-grid">
-	<p>fds</p>
-	<p>dsfsd</p>
+<div id="L1" class="tabcontent">
+	<div class="character-grid-header">
+		<p>Preface</p>
+		<hr>
+	</div>
+	
+	<p>This is a text-based guide on how to create and implement HD assets, such as characters and backgrounds, into AAO games. If you are learning this for the first time, I recommend you play this interactive tutorial on AAO first; it contains more images for visual reference, is self-demonstrating (because it's an AAO tutorial on... AAO), and is (hopefully) more entertaining to use and learn through. However, i
 </div>
 
 
-<script src="styles/editableJs/common.js"></script>
-<script src="styles/editableJs/nav.js"></script>
+<script src="../styles/editableJs/common.js"></script>
+<script src="../styles/editableJs/nav.js"></script>
+<script src="../styles/editableJs/tabs.js"></script>
 
 </body>
 </html>
