@@ -4,8 +4,12 @@ body {
 }
 
 
-.main-page-header, .main-icon, .character-grid-header {
+.main-icon,
+.character-grid-header {
 	animation: fadeEffect 1s;
+}
+.main-page-header {
+	animation: fadeEffect 2s;
 }
 
 
@@ -20,7 +24,8 @@ body {
 }
 
 
-.character-grid, .main-grid {
+.character-grid,
+.main-grid {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
@@ -46,19 +51,29 @@ body {
 	width: 125px;
 	text-align: center;
 }
-.place-card, .court-card {
+
+.place-card,
+.court-card {
 	text-align: center;
 }
-.character-card p, .place-card p, .court-card p {
+
+.character-card p,
+.place-card p,
+.court-card p {
 	margin-top: 5px;
 	margin-bottom: 0;
 	line-height: 1.25;
 	word-wrap: break-word;
 }
-.character-card button, .place-card button, .court-card button {
+
+.character-card button,
+.place-card button,
+.court-card button {
 	margin-top: 5px;
 }
-.character-icon:hover, .main-icon:hover {
+
+.character-icon:hover,
+.main-icon:hover {
 	transform: scale(1.05);
 }
 
@@ -104,75 +119,103 @@ table, th, td {
 
 
 .main-icon {
-	border: 2px solid #FFF;
-	padding: 20px;
-	width: 300px;
 	position: relative;
 	overflow: hidden;
+	width: 300px;
+	padding: 20px;
+	border: 2px solid #fff;
 }
 .main-icon p {
 	text-align: center;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.main-character::before,
+.main-character::after,
+.main-background::before,
+.main-text-turorial::before,
+.main-aao-turorial::before,
+.main-script::before,
+.main-script::after,
+.main-evidence::before,
+.main-evidence::after,
+.main-ds::before,
+.main-ds::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-repeat: no-repeat;
 }
 
 
 .main-character::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
-	background-image: url('/Characters/AA4/Apollo Justice/Confident Grin.svg');
-	background-repeat: no-repeat;
-	background-position: top left;
-	opacity: 0.7;
-	z-index: -1;
+	height: 250%;
+	transform: translateX(-25%);
+	background: url('/Characters/AA4/Apollo Justice/Confident Grin.svg') no-repeat center left / auto 150%;
+	opacity: 0.85;
 }
-.main-background::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
-	background-image: url('/Backgrounds/AA1/Wright and Co. Law Offices.svg');
-	background-repeat: no-repeat;
-	background-size: 100% auto;
-	background-position: center left;
+.main-character::after {
+	background: url('/Backgrounds/Courtrooms/AA5 5-5 Defense BG.svg') no-repeat center left / 100% auto;
 	opacity: 0.4;
-	z-index: -1;
+	z-index: -2;
 }
+
+
+.main-background::before {
+	background: url('/Backgrounds/AA1/Wright and Co. Law Offices.svg') no-repeat center left / 100% auto;
+	opacity: 0.4;
+}
+
+
+.main-text-turorial::before {
+	background: url('images/Text Tutorial Icon.png') no-repeat center left / 100% auto;
+	opacity: 0.4;
+}
+
+
+.main-aao-turorial::before {
+	height: calc(100% + 35px); 
+	background: url('/AAO Tutorial Assets/Backgrounds/Lesson 2.2/Inkscape Demo 05.svg') no-repeat center left / 100% auto;
+	opacity: 0.4;
+}
+
+
+.main-script::before {
+	background: url('images/Script Icon.png') no-repeat center center / auto 120%;
+	opacity: 0.4;
+}
+.main-script::after {
+	background-color: #111;
+	z-index: -2;
+}
+
+
 .main-evidence::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	margin-left: 2%;
-
-	background-image: url("/Evidence/AA5/Attorney's Badge.png");
-	background-repeat: no-repeat;
-	background-size: auto 90%;
-	background-position: center left;
-	opacity: 0.7;
-	z-index: -1;
+	transform: translateX(27%);
+	background: url('images/Evidence Icon.png') no-repeat center right / auto 225%;
+	opacity: 0.4;
 }
-.main-ds::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	margin-left: -20%;
-	image-rendering: pixelated;
+.main-evidence::after {
+	background-color: #4F4F4F;
+	z-index: -2;
+}
 
-	background-image: url('/DS/Characters/ZE - 999/Santa/Serious.gif');
-	background-repeat: no-repeat;
-	background-position: top left;
-	opacity: 0.7;
-	z-index: -1;
+
+.main-ds::before {
+	transform: translateX(-35%) translateY(-25px);
+	height: calc(100% + 25px); 
+	image-rendering: pixelated;
+	background: url('/DS/Characters/ZE - 999/June/Normal.gif') no-repeat top left / auto 200%;
+	opacity: 0.8;
+}
+.main-ds::after {
+	image-rendering: pixelated;
+	background: url('/DS/Backgrounds/ZE - 999/Hospital.png') no-repeat center left / 100% auto;
+	opacity: 0.4;
+	z-index: -2;
 }
